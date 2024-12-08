@@ -1,28 +1,16 @@
 def part1(input)
-  count = 0;
+  valid = 0
   input.each do |x|
     arr = x.split(' ')
-    pattern = helper(arr)
-    # count += 1 if arr.last.match?(/#{pattern}/)
-    arr.last.match?(/#{pattern}/) ? count += 1 : log(arr, pattern)
+    letter = arr[1][0]
+    lower = arr[0].split('-').first.to_i
+    upper = arr[0].split('-').last.to_i
+    count = arr.last.count(letter)
+    if count >= lower && count <= upper
+      valid += 1
+    end
   end
-  count
-end
-
-def log(arr, pattern)
-  puts "#{arr.last}.match?(/#{pattern}/)"
-end
-
-def helper(arr)
-  letter = arr[1][0]
-  range = arr.first.split('-')
-  lower = range.first
-  upper = range.last
-  # if arr.last.match?(/#{letter}{#{lower},#{upper}}/)
-  #   count += 1
-  #   p "/#{letter}{#{lower},#{upper}}/"
-  # end
-  return "#{letter}{#{lower},#{upper}}"
+  valid
 end
 
 
