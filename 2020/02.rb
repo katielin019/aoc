@@ -2,10 +2,7 @@ def part1()
 
 end
 
+day = "02"
 context = Dir.getwd.split('/').last
-p context
-# Dir.getwd == "aoc" ? file = File.new('/2020/input/02.txt') : file = File.new('input/02.txt')
-# file = File.new('input/02.txt')
-# input = file.readlines
-
-# p input
+context == "aoc" ? file = File.new("2020/input/#{day}.txt") : file = File.new("input/#{day}.txt")
+input = file.readlines
