@@ -1,12 +1,16 @@
 def part1(input)
   count = 0;
-  bad = 0;
   input.each do |x|
     arr = x.split(' ')
     pattern = helper(arr)
-    arr.last.match?(/#{pattern}/) ? count += 1 : bad += 1
+    # count += 1 if arr.last.match?(/#{pattern}/)
+    arr.last.match?(/#{pattern}/) ? count += 1 : log(arr, pattern)
   end
-  p count, bad #=> 357\n643\n[357, 643]
+  count
+end
+
+def log(arr, pattern)
+  puts "#{arr.last}.match?(/#{pattern}/)"
 end
 
 def helper(arr)
