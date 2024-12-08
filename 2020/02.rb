@@ -26,26 +26,38 @@ end
 
 def helper(args)
   # ["1-3", "a:", "abcde"]
-  p args
   positions = args[0].split('-').map(&:to_i)
-  p positions
   letter = args[1][0]
   str = args.last
-  chars = positions.map{|p| str[p-1]}
-  # chars = Set.new(positions.map{|p| str[p+1]})
-  p chars
-  chars = Set.new(chars)
+  chars = Set.new(positions.map{|p| str[p-1]})
   # chars.size() == 1 ? (chars.include?(letter) ? return false : return false) : c
   # chars.size() == 2 && chars.include?(letter) ? return true : return false
   return true if chars.size() == 2 && chars.include?(letter)
   return false
 end
 
+# def helper(args)
+#   # ["1-3", "a:", "abcde"]
+#   p args
+#   positions = args[0].split('-').map(&:to_i)
+#   p positions
+#   letter = args[1][0]
+#   str = args.last
+#   chars = positions.map{|p| str[p-1]}
+#   # chars = Set.new(positions.map{|p| str[p-1]})
+#   p chars
+#   chars = Set.new(chars)
+#   # chars.size() == 1 ? (chars.include?(letter) ? return false : return false) : c
+#   # chars.size() == 2 && chars.include?(letter) ? return true : return false
+#   return true if chars.size() == 2 && chars.include?(letter)
+#   return false
+# end
+
 
 day = "02"
 context = Dir.getwd.split('/').last
-# context == "aoc" ? file = File.new("2020/input/#{day}.txt") : file = File.new("input/#{day}.txt")
-context == "aoc" ? file = File.new("2020/input/#{day} copy.txt") : file = File.new("input/#{day} copy.txt")
+context == "aoc" ? file = File.new("2020/input/#{day}.txt") : file = File.new("input/#{day}.txt")
+# context == "aoc" ? file = File.new("2020/input/#{day} copy.txt") : file = File.new("input/#{day} copy.txt")
 input = file.readlines
 
 # p part1(input)
