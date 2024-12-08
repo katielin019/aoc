@@ -19,7 +19,7 @@ def part2(entries, set, target)
 	end
 end
 
-file = File.open("01_input.txt")
+file = File.new('input/01.txt')
 input = file.readlines.map(&:to_i)
 set = Set.new(input)
 
