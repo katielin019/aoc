@@ -1,8 +1,9 @@
 def part1(input)
   valid = 0
-  input.each do |x|
-    arr = x.split(' ')
+  input.each do |x|         # 1-3 a: abcde
+    arr = x.split(' ')      # ["1-3", "a:", "abcde"]
     letter = arr[1][0]
+    # arr[0].split('-') => ["1", "3"]
     lower = arr[0].split('-').first.to_i
     upper = arr[0].split('-').last.to_i
     count = arr.last.count(letter)
