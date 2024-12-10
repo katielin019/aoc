@@ -2,16 +2,37 @@ require 'algorithms'
 include Containers
 
 def part1(input)
-
+  safe = 0
+  input.each do |x|
+    levels = x.split(' ').map(&:to_i)
+    safe += 1 if checkLevels(levels) == true
+  end
+  safe
 end
 
-def diff(a, b)
-  (a.to_i - b.to_i).abs()
+def checkLevels(arr)
+  diff = arr[0] - arr[1]
+  if diff.abs() == 0 || diff.abs() > 3
+    return false
+  end
+
+  conditions_met = true
+  i = 1
+
+  while conditions_met && (i < arr.length() - 1)
+    delta = arr[i] - arr[i+1]
+    # conditions_met = ((diff > 0) && (delta > 0)) && delta.abs() < 4
+    # conditions_met = (delta.abs() < 4)
+    i += 1
+  end
+  return conditions_met
 end
 
 def part2(input)
 
 end
+
+# p checkLevels([1, 3, 4, 5])
 
 def main()
   day = "02"
