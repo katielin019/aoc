@@ -37,15 +37,19 @@ def part2(input)
   similarity
 end
 
-day = "01"
-context = Dir.getwd.split('/').last
-context == "aoc" ? file = File.new("2024/input/#{day}.txt") : file = File.new("input/#{day}.txt")
-# context == "aoc" ? file = File.new("2024/input/#{day} copy.txt") : file = File.new("input/#{day} copy.txt")
-input = file.readlines
+def main()
+  day = "01"
+  context = Dir.getwd.split('/').last
+  context == "aoc" ? file = File.new("2024/input/#{day}.txt") : file = File.new("input/#{day}.txt")
+  # context == "aoc" ? file = File.new("2024/input/#{day} copy.txt") : file = File.new("input/#{day} copy.txt")
+  input = file.readlines
 
-start_at = Process.clock_gettime(Process::CLOCK_MONOTONIC)
-p part1(input)
-p part2(input)
-end_at = Process.clock_gettime(Process::CLOCK_MONOTONIC)
-elapsed = end_at - start_at
-p elapsed
+  start_at = Process.clock_gettime(Process::CLOCK_MONOTONIC)
+  puts "Part 1: #{part1(input)}"
+  puts "Part 2: #{part2(input)}"
+  end_at = Process.clock_gettime(Process::CLOCK_MONOTONIC)
+  elapsed = end_at - start_at
+  puts "Elapsed time: #{elapsed}"
+end
+
+main()
