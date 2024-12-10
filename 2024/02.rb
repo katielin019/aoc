@@ -20,35 +20,26 @@ def checkLevels(arr)
     steps.include?(result.abs()) ? diff[i] = result : safe = false
     i += 1
   end
-  if safe == true
-    return (diff.all? { |e| e > 0} || diff.all? { |e| e < 0 })
-  end
-  return false
+  return false if safe == false
+  return (diff.all? { |e| e > 0} || diff.all? { |e| e < 0 })
 end
 
 # def part2(input)
 
 # end
 
-p checkLevels([1, 3, 4, 5])     # true
-p checkLevels([1, 3, 6, 7, 9])  # true
-p checkLevels([1, 3, 2, 4, 5])  # false
-p checkLevels([9, 7, 6, 2, 1])  # false
-p checkLevels([8, 6, 4, 4, 1])  # false
-p checkLevels([10, 7, 5, 3, 1]) # true
+def main()
+  day = "02"
+  context = Dir.getwd.split('/').last
+  context == "aoc" ? file = File.new("2024/input/#{day}.txt") : file = File.new("input/#{day}.txt")
+  input = file.readlines
 
-# def main()
-#   day = "02"
-#   context = Dir.getwd.split('/').last
-#   context == "aoc" ? file = File.new("2024/input/#{day}.txt") : file = File.new("input/#{day}.txt")
-#   input = file.readlines
+  start_at = Process.clock_gettime(Process::CLOCK_MONOTONIC)
+  puts "Part 1: #{part1(input)}"
+  # puts "Part 2: #{part2(input)}"
+  end_at = Process.clock_gettime(Process::CLOCK_MONOTONIC)
+  elapsed = end_at - start_at
+  puts "Elapsed time: #{elapsed}"
+end
 
-#   start_at = Process.clock_gettime(Process::CLOCK_MONOTONIC)
-#   puts "Part 1: #{part1(input)}"
-#   # puts "Part 2: #{part2(input)}"
-#   end_at = Process.clock_gettime(Process::CLOCK_MONOTONIC)
-#   elapsed = end_at - start_at
-#   puts "Elapsed time: #{elapsed}"
-# end
-
-# main()
+main()
