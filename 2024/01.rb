@@ -21,6 +21,22 @@ def diff(a, b)
   (a.to_i - b.to_i).abs()
 end
 
+def part2(input)
+  left = []
+  right = Hash.new(0)
+  input.each do |x|
+    vals = x.split(' ')
+    left.push(vals.first.to_i)
+    right[vals.last.to_i] += 1
+  end
+
+  similarity = 0
+  left.each do |y|
+    similarity += (y * right[y])
+  end
+  similarity
+end
+
 day = "01"
 context = Dir.getwd.split('/').last
 context == "aoc" ? file = File.new("2024/input/#{day}.txt") : file = File.new("input/#{day}.txt")
