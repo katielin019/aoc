@@ -1,7 +1,7 @@
 require 'algorithms'
 include Containers
 
-def part1(input)
+def part_1(input)
   left = MinHeap.new()
   right = MinHeap.new()
   input.each do |x|
@@ -21,7 +21,7 @@ def diff(a, b)
   (a.to_i - b.to_i).abs()
 end
 
-def part2(input)
+def part_2(input)
   left = []
   right = Hash.new(0)
   input.each do |x|
@@ -45,8 +45,8 @@ def main()
   input = file.readlines
 
   start_at = Process.clock_gettime(Process::CLOCK_MONOTONIC)
-  puts "Part 1: #{part1(input)}"
-  puts "Part 2: #{part2(input)}"
+  puts "Part 1: #{part_1(input)}"
+  puts "Part 2: #{part_2(input)}"
   end_at = Process.clock_gettime(Process::CLOCK_MONOTONIC)
   elapsed = end_at - start_at
   puts "Elapsed time: #{elapsed}"

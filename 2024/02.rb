@@ -1,16 +1,16 @@
 require 'algorithms'
 include Containers
 
-# def part1(input)
-#   safe = 0
-#   input.each do |x|
-#     arr = x.split(' ').map(&:to_i)
-#     safe += 1 if checkLevels(arr) == true
-#   end
-#   safe
-# end
+def part_1(input)
+  safe = 0
+  input.each do |x|
+    arr = x.split(' ').map(&:to_i)
+    safe += 1 if check_levels(arr) == true
+  end
+  safe
+end
 
-def checkLevels(arr)
+def check_levels(arr)
   i = 0
   diff = []
   steps = (1..3).to_a
@@ -24,9 +24,21 @@ def checkLevels(arr)
   return (diff.all? { |e| e > 0} || diff.all? { |e| e < 0 })
 end
 
-# def part2(input)
+def same_sign?(arr)
 
-# end
+end
+
+def part_2(input)
+
+end
+
+def count_steps(arr)
+  steps = []
+  (0..arr.length() - 1).each do
+    steps[i] = arr[i] - arr[i + 1]
+  end
+  steps
+end
 
 def main()
   day = "02"
@@ -35,8 +47,8 @@ def main()
   input = file.readlines
 
   start_at = Process.clock_gettime(Process::CLOCK_MONOTONIC)
-  puts "Part 1: #{part1(input)}"
-  # puts "Part 2: #{part2(input)}"
+  puts "Part 1: #{part_1(input)}"
+  # puts "Part 2: #{part_2(input)}"
   end_at = Process.clock_gettime(Process::CLOCK_MONOTONIC)
   elapsed = end_at - start_at
   puts "Elapsed time: #{elapsed}"

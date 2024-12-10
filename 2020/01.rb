@@ -1,6 +1,6 @@
 require 'set'
 
-def part1(entries, set, target)
+def part_1(entries, set, target)
 	entries.each do |x|
 		if set.include?(target - x)
 			# return "#{x}, #{target - x}"
@@ -9,7 +9,7 @@ def part1(entries, set, target)
 	end
 end
 
-def part2(entries, set, target)
+def part_2(entries, set, target)
 	entries.each do |x|
 		entries.each do |y|
 			if set.include?(target - x - y)
@@ -26,8 +26,8 @@ input = file.readlines.map(&:to_i)
 set = Set.new(input)
 
 start_at = Process.clock_gettime(Process::CLOCK_MONOTONIC)
-p part1(input, set, 2020)
-p part2(input, set, 2020)
+p part_1(input, set, 2020)
+p part_2(input, set, 2020)
 end_at = Process.clock_gettime(Process::CLOCK_MONOTONIC)
 elapsed = end_at - start_at
 p elapsed
