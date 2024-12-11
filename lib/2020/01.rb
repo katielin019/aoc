@@ -1,33 +1,10 @@
-require 'set'
+EXP_REPORT = INPUT.split("\n").map(&:to_i)
+TARGET = 2020
 
-def part_1(entries, set, target)
-	entries.each do |x|
-		if set.include?(target - x)
-			# return "#{x}, #{target - x}"
-			return x * (target - x)
-		end
-	end
+def find_sum_entries(count)
+	entries = EXP_REPORT.combination(count).detect { |vals| vals.sum == TARGET }
+	entries.inject(:*)
 end
 
-def part_2(entries, set, target)
-	entries.each do |x|
-		entries.each do |y|
-			if set.include?(target - x - y)
-				return x * y * (target - x - y)
-			end
-		end
-	end
-end
-
-day = "01"
-context = Dir.getwd.split('/').last
-context == "aoc" ? file = File.new("2020/input/#{day}.txt") : file = File.new("input/#{day}.txt")
-input = file.readlines.map(&:to_i)
-set = Set.new(input)
-
-start_at = Process.clock_gettime(Process::CLOCK_MONOTONIC)
-p part_1(input, set, 2020)
-p part_2(input, set, 2020)
-end_at = Process.clock_gettime(Process::CLOCK_MONOTONIC)
-elapsed = end_at - start_at
-p elapsed
+solve!("Part 1:", find_sum_entries(2))
+solve!("Part 2:", find_sum_entries(3))
