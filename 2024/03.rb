@@ -39,8 +39,8 @@ def part_2(input)
   total
 end
 
-str = ["xmul(2,4)&mul[3,7]!^don't()_mul(5,5)+mul(32,64](mul(11,8)undo()?mul(8,5))"]
-p part_2(str)
+# str = ["xmul(2,4)&mul[3,7]!^don't()_mul(5,5)+mul(32,64](mul(11,8)undo()?mul(8,5))"]
+# p part_2(str)
 
 def main()
   day = "03"
@@ -51,10 +51,10 @@ def main()
 
   start_at = Process.clock_gettime(Process::CLOCK_MONOTONIC)
   puts "Part 1: #{part_1(input)}"
-  # puts "Part 2: #{part_2(input)}"
+  puts "Part 2: #{part_2(input)}"
   end_at = Process.clock_gettime(Process::CLOCK_MONOTONIC)
   elapsed = end_at - start_at
   puts "Elapsed time: #{elapsed}"
 end
 
-# main()
+main()
