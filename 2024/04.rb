@@ -13,12 +13,6 @@ class Grid
     end
   end
 
-  # def search_all(r, c)
-  #   total = 0
-  #   total +=
-  #   return 0
-  # end
-
   def search_N(r, c)
     return false if (r - 3 < 0)
     return @grid[r-1][c] == 'M' && @grid[r-2][c] == 'A' && @grid[r-3][c] == 'S'
@@ -88,8 +82,7 @@ sample_1 = ["MMMSXXMASM",
             "MAMMMXMMMM",
             "MXMXAXMASX"]
 
-p part_1(sample_1)
-# answer_1 = 18
+# p part_1(sample_1)
 
 def part_2(input)
 end
@@ -109,4 +102,4 @@ def main()
   puts "Elapsed time: #{elapsed}"
 end
 
-# main()
+main()
