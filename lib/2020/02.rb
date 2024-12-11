@@ -1,11 +1,12 @@
 require 'set'
 
+PASSWORDS = INPUT.split("\n")
+
 def part_1(input)
   valid = 0
   input.each do |x|         # 1-3 a: abcde
     arr = x.split(' ')      # ["1-3", "a:", "abcde"]
     letter = arr[1][0]
-    # arr[0].split('-') => ["1", "3"]
     lower = arr[0].split('-').first.to_i
     upper = arr[0].split('-').last.to_i
     count = arr.last.count(letter)
@@ -34,15 +35,5 @@ def helper(args)
   return false
 end
 
-day = "02"
-context = Dir.getwd.split('/').last
-context == "aoc" ? file = File.new("2020/input/#{day}.txt") : file = File.new("input/#{day}.txt")
-# context == "aoc" ? file = File.new("2020/input/#{day} copy.txt") : file = File.new("input/#{day} copy.txt")
-input = file.readlines
-
-start_at = Process.clock_gettime(Process::CLOCK_MONOTONIC)
-p part_1(input)
-p part_2(input)
-end_at = Process.clock_gettime(Process::CLOCK_MONOTONIC)
-elapsed = end_at - start_at
-p elapsed
+solve!("Part 1:", part_1(PASSWORDS))
+solve!("Part 2:", part_2(PASSWORDS))

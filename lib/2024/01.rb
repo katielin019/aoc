@@ -1,6 +1,18 @@
 require 'algorithms'
 include Containers
 
+# numbers = INPUT.split("\n").map { |line| line.split(/\s+/) }
+
+# FIRST = numbers.map(&:first).map(&:to_i)
+# SECOND = numbers.map(&:last).map(&:to_i)
+
+# solve! "The total of distances is:", FIRST.sort.zip(SECOND.sort).sum { |a, b| (b - a).abs }
+# solve! "The total of similarity scores is:", FIRST.sum { |number| number * SECOND.count(number) }
+
+
+
+LOCATIONS = INPUT.split("\n")
+
 def part_1(input)
   left = MinHeap.new()
   right = MinHeap.new()
@@ -37,19 +49,5 @@ def part_2(input)
   similarity
 end
 
-def main()
-  day = "01"
-  context = Dir.getwd.split('/').last
-  context == "aoc" ? file = File.new("2024/input/#{day}.txt") : file = File.new("input/#{day}.txt")
-  # context == "aoc" ? file = File.new("2024/input/#{day} copy.txt") : file = File.new("input/#{day} copy.txt")
-  input = file.readlines
-
-  start_at = Process.clock_gettime(Process::CLOCK_MONOTONIC)
-  puts "Part 1: #{part_1(input)}"
-  puts "Part 2: #{part_2(input)}"
-  end_at = Process.clock_gettime(Process::CLOCK_MONOTONIC)
-  elapsed = end_at - start_at
-  puts "Elapsed time: #{elapsed}"
-end
-
-main()
+solve!("Part 1:", part_1(INPUT))
+solve!("Part 2:", part_2(LOCATIONS))

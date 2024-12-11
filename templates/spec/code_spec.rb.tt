@@ -1,17 +1,17 @@
 require "spec_helper"
 
-RSpec.describe "Day <%= date.day %>: Challenge Title" do
+RSpec.describe "Day <%= date.day %>: REPLACE_WITH_TITLE" do
   let(:runner) { Runner.new("<%= datepath %>") }
   let(:input) do
     <<~TXT
     TXT
   end
 
-  describe "Part One" do
+  describe "(Part 1)" do
     let(:solution) { runner.execute!(input, part: 1) }
   end
 
-  describe "Part Two" do
+  describe "(Part 2)" do
     let(:solution) { runner.execute!(input, part: 2) }
   end
 end

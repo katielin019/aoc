@@ -1,6 +1,6 @@
 require "spec_helper"
 
-RSpec.describe "Day 1: Challenge Title" do
+RSpec.describe "Day 1: Report Repair" do
   let(:runner) { Runner.new("2020/01") }
   let(:input) do
     <<~TXT
@@ -13,7 +13,7 @@ RSpec.describe "Day 1: Challenge Title" do
     TXT
   end
 
-  describe "Part One" do
+  describe "(Part 1)" do
     let(:solution) { runner.execute!(input, part: 1) }
 
     it "finds the two entries that sum to 2020 and returns their product" do
@@ -21,7 +21,7 @@ RSpec.describe "Day 1: Challenge Title" do
     end
   end
 
-  describe "Part Two" do
+  describe "(Part 2)" do
     let(:solution) { runner.execute!(input, part: 2) }
 
     it "finds the three entries that sum to 2020 and returns their product" do
