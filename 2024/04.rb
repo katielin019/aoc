@@ -107,7 +107,7 @@ def main()
   input = file.readlines
 
   start_at = Process.clock_gettime(Process::CLOCK_MONOTONIC)
-  # puts "Part 1: #{part_1(input)}"
+  puts "Part 1: #{part_1(input)}"
   puts "Part 2: #{part_2(input)}"
   end_at = Process.clock_gettime(Process::CLOCK_MONOTONIC)
   elapsed = end_at - start_at
