@@ -1,11 +1,13 @@
 def part_1(input)
   grid = Array.new(input.length, Array.new(input[0].length))
-  (0...input.length).each do |i|
-    tmp = input[i].chars
+  locs = []
+  (0...input.length).each do |row|
+    tmp = input[row].chars
     # ["A", "B", "C", "D", "E"]
-    grid[i] = tmp.flat_map { |x| [x] }
+    grid[row] = tmp.flat_map.with_index { |ch, col| ch == 'X' ?  locs.push([row, col]) && [ch] : [ch]}
   end
-  grid
+  p grid
+  locs
 end
 
 sample_1 = ["MMMSXXMASM",
@@ -19,11 +21,7 @@ sample_1 = ["MMMSXXMASM",
             "MAMMMXMMMM",
             "MXMXAXMASX"]
 
-test = ["ABCDE", "FGHIJ", "KLMNO"]
-
-# p part_1(sample_1)
-p part_1(test)
-
+p part_1(sample_1)
 # answer_1 = 18
 
 def part_2(input)
