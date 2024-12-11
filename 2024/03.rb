@@ -1,17 +1,12 @@
-# str.to_enum(:scan, regex).map { Regexp.last_match }
-# source: https://brettterpstra.com/2023/12/17/ruby-regexp-scan-with-matchdata/
-
-# regexp: /mul\(\d{1,3},\d{1,3}\)/
-
 def part_1(input)
   total = 0
   input.each do |x|
     matches = x.scan(/mul\(\d{1,3},\d{1,3}\)/)
-    matches.each do |x|
-      total += compute(x)
-    end
-    # matches.map { |x| compute(x).to_i }
-    # total += matches.inject(0, :+)  # returns 0 (instead of nil) if array is empty
+    # matches.each do |x|
+    #   total += compute(x)
+    # end
+    products = matches.flat_map { |x| compute(x) }
+    total += products.inject(0, :+)
   end
   total
 end
@@ -23,11 +18,29 @@ def compute(str)
   return vals.first * vals.last
 end
 
-str = ["xmul(2,4)%&mul[3,7]!@^do_not_mul(5,5)+mul(32,64]then(mul(11,8)mul(8,5))"]
-p part_1(str)
-
 def part_2(input)
+  enabled = true
+  total = 0
+  input.each do |x|
+    # matches = x.scan(/(mul\(\d{1,3},\d{1,3}\))|(don\'t)|(do)/)
+    matches = x.scan(/mul\(\d{1,3},\d{1,3}\)|don\'t|do/)
+    matches.each do |m|
+      case m
+      when "don't"
+        enabled = false
+      when "do"
+        enabled = true
+      else
+        total += compute(m) if enabled
+      end
+    end
+    # p matches
+  end
+  total
 end
+
+str = ["xmul(2,4)&mul[3,7]!^don't()_mul(5,5)+mul(32,64](mul(11,8)undo()?mul(8,5))"]
+p part_2(str)
 
 def main()
   day = "03"
