@@ -19,7 +19,7 @@ class CodeGenerator < Thor::Group
   def generate!
     create_file("inputs/#{datepath}.txt", force: true) { get_input(date) }
     create_file("lib/#{datepath}.rb", skip: true)
-    # template("templates/spec/code_spec.rb.tt", "spec/#{datepath}_spec.rb", skip: true)
+    template("templates/spec/code_spec.rb.tt", "spec/#{datepath}_spec.rb", skip: true)
   end
 
   private
@@ -39,5 +39,9 @@ date = ARGV[0] ? Time.strptime(ARGV[0], TIME_FORMAT) : Time.new.localtime("-05:0
 datepath = date.strftime(TIME_FORMAT)
 
 puts("Creating placeholders for https://adventofcode.com/#{date.year}/day/#{date.day}")
+start_at = Process.clock_gettime(Process::CLOCK_MONOTONIC, :nanosecond)
 CodeGenerator.start([date, datepath])
-puts "DONE"
+end_at = Process.clock_gettime(Process::CLOCK_MONOTONIC, :nanosecond)
+elapsed = (end_at - start_at)/1000000
+
+puts "DONE IN 0.#{elapsed}S"

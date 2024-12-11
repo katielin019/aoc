@@ -1,0 +1,20 @@
+#!/usr/bin/env ruby
+
+require_relative("../lib/runner")
+require "date"
+
+date = ARGV[0] || Time.new.localtime("-05:00").strftime("%Y/%d")
+
+puts "Running code for #{date}:", nil
+start_at = Process.clock_gettime(Process::CLOCK_MONOTONIC, :nanosecond)
+
+input_file = "inputs/#{date}.txt"
+if File.exist?(input_file)
+  runner = Runner.new(date, logger: $stdout)
+  runner.execute!(File.read(input_file))
+end
+
+end_at = Process.clock_gettime(Process::CLOCK_MONOTONIC, :nanosecond)
+elapsed = (end_at - start_at)/1000000
+
+puts "DONE IN 0.#{elapsed}S"
