@@ -7,7 +7,7 @@ As of December 2024, all of my solutions are written in Ruby. I also make use of
 ## `aoc-cli` quickref
 #### Download puzzle input
 ```
-aoc do -I -i <FILE PATH> -d <DAY> -y <YEAR>
+aoc do -I -i <FILEPATH> -d <DAY> -y <YEAR>
 ```
 
 #### Read the puzzle write-up for DAY in YEAR

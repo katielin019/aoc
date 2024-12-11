@@ -1,3 +1,5 @@
-input
-# /2020/input/*
-# /2024/input/*
+.DS_Store
+.session
+*.code-workspace
+
+input/**/*
