@@ -7,4 +7,4 @@
 - [x] add tests for `spec/2024/04_spec.rb`
 
 - [ ] add tests for `spec/2024/05_spec.rb`
-- [ ] sketch out approach for Day 5 (2024) solution
+- [x] sketch out approach for Day 5 (2024) solution

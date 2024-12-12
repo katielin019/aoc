@@ -42,7 +42,30 @@ LEFT.each do |page|
   hash[page.to_i] = ORD.select { |rule| rule.first == page }.map(&:last).map(&:to_i)
 end
 
-puts hash
+# puts hash
 
 # {"47"=>[["47", "53"], ["47", "13"], ["47", "61"], ["47", "29"]], "97"=>[["97", "13"], ["97", "61"], ["97", "47"], ["97", "29"], ["97", "53"], ["97", "75"]], "75"=>[["75", "29"], ["75", "53"], ["75", "47"], ["75", "61"], ["75", "13"]], "61"=>[["61", "13"], ["61", "53"], ["61", "29"]], "29"=>[["29", "13"]], "53"=>[["53", "29"], ["53", "13"]]}
 # {47=>[53, 13, 61, 29], 97=>[13, 61, 47, 29, 53, 75], 75=>[29, 53, 47, 61, 13], 61=>[13, 53, 29], 29=>[13], 53=>[29, 13]}
+
+UPDATE_LIST = SECTIONS.last.split
+UPDATES = UPDATE_LIST.map { |u| u.split(",") }
+# total = 0
+
+UPDATES.each do |u|
+  u.map!(&:to_i)
+  u.each do |page|
+    p page, hash.values_at(page).flatten
+  end
+end
+
+## APPROACH ?? :: 61,13,29 => 29,13,61 && 29|13
+# 29,61,13 (not directly next to each other)
+#
+# reverse the array
+# keep rules intact
+# check if any page lists ADHERE to one of the rules (i.e. reverse order would break them)
+#
+# get arr.first (29)
+# get rules for page (29|13)
+# shift arr ([29,61,13] => [61,13])
+# check if arr.include?(second_half_of_rule)
