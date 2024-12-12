@@ -38,12 +38,16 @@ RSpec.describe "Day 5: Print Queue" do
   describe "(Part 1)" do
     let(:solution) { runner.execute!(input, part: 1) }
 
-    it "does something" do
+    it "identifies updates that follow all page ordering rules and sums up their middle page values" do
       expect(solution).to eq(143)
     end
   end
 
-  # describe "(Part 2)" do
-  #   let(:solution) { runner.execute!(input, part: 2) }
-  # end
+  describe "(Part 2)" do
+    let(:solution) { runner.execute!(input, part: 2) }
+
+    it "identifies incorrectly-ordered updates, fixes them, then sums their correctly-ordered middle page values" do
+      expect(solution).to eq(123)
+    end
+  end
 end
