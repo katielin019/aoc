@@ -43,7 +43,7 @@ RSpec.describe "Day 5: Print Queue" do
     end
   end
 
-  describe "(Part 2)" do
-    let(:solution) { runner.execute!(input, part: 2) }
-  end
+  # describe "(Part 2)" do
+  #   let(:solution) { runner.execute!(input, part: 2) }
+  # end
 end
