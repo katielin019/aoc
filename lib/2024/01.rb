@@ -1,21 +1,10 @@
 require 'algorithms'
-include Containers
-
-# numbers = INPUT.split("\n").map { |line| line.split(/\s+/) }
-
-# FIRST = numbers.map(&:first).map(&:to_i)
-# SECOND = numbers.map(&:last).map(&:to_i)
-
-# solve! "The total of distances is:", FIRST.sort.zip(SECOND.sort).sum { |a, b| (b - a).abs }
-# solve! "The total of similarity scores is:", FIRST.sum { |number| number * SECOND.count(number) }
-
-
 
 LOCATIONS = INPUT.split("\n")
 
 def part_1(input)
-  left = MinHeap.new()
-  right = MinHeap.new()
+  left = Containers::MinHeap.new()
+  right = Containers::MinHeap.new()
   input.each do |x|
     vals = x.split(' ')
     left.push(vals.first)
@@ -49,5 +38,5 @@ def part_2(input)
   similarity
 end
 
-solve!("Part 1:", part_1(INPUT))
+solve!("Part 1:", part_1(LOCATIONS))
 solve!("Part 2:", part_2(LOCATIONS))

@@ -99,33 +99,5 @@ def part_2(input)
   grid.count
 end
 
-def main()
-  day = "04"
-  year = "2024"
-  context = Dir.getwd.split('/').last
-  context == "aoc" ? file = File.new("#{year}/input/#{day}.txt") : file = File.new("input/#{day}.txt")
-  input = file.readlines
-
-  start_at = Process.clock_gettime(Process::CLOCK_MONOTONIC)
-  puts "Part 1: #{part_1(input)}"
-  puts "Part 2: #{part_2(input)}"
-  end_at = Process.clock_gettime(Process::CLOCK_MONOTONIC)
-  elapsed = end_at - start_at
-  puts "Elapsed time: #{elapsed}"
-end
-
-main()
-
-sample = ["MMMSXXMASM",
-            "MSAMXMSMSA",
-            "AMXSXMAAMM",
-            "MSAMASMSMX",
-            "XMASAMXAMM",
-            "XXAMMXXAMA",
-            "SMSMSASXSS",
-            "SAXAMASAAA",
-            "MAMMMXMMMM",
-            "MXMXAXMASX"]
-
-# p part_1(sample)
-# p part_2(sample)
+solve!(part_1(INPUT.split("\n")))
+solve!(part_2(INPUT.split("\n")))

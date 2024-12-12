@@ -15,9 +15,17 @@ RSpec.describe "Day 2: Red-Nosed Reports" do
 
   describe "(Part 1)" do
     let(:solution) { runner.execute!(input, part: 1) }
+
+    it "counts the number of safe levels" do
+      expect(solution).to eq(2)
+    end
   end
 
   describe "(Part 2)" do
     let(:solution) { runner.execute!(input, part: 2) }
+
+    it "counts the number of safe levels with tolerance" do
+      expect(solution).to eq(4)
+    end
   end
 end
