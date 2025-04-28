@@ -10,3 +10,4 @@ So, I sometimes forget which commands to run and what files I should navigate to
 2. Add example input from [write up](https://adventofcode.com/2020/day/3)
 3. Write solution in lib/2020/03.rb
 3. `$ rspec spec/2020/03_spec.rb`
+4. `$ bin/run 2020/03`
