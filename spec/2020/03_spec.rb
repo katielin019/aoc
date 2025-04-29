@@ -26,7 +26,11 @@ RSpec.describe "Day 3: Toboggan Trajectory" do
     end
   end
 
-  # describe "(Part 2)" do
-  #   let(:solution) { runner.execute!(input, part: 2) }
-  # end
+  describe "(Part 2)" do
+    let(:solution) { runner.execute!(input, part: 2) }
+
+    it "determines the number of tree collisions based on slope" do
+      expect(solution).to eq(336)
+    end
+  end
 end
