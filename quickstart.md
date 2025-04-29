@@ -13,4 +13,4 @@ So, I sometimes forget which commands to run and what files I should navigate to
 5. `$ rspec spec/2020/03_spec.rb`
 6. `$ bin/run 2020/03`
 7. Add part 2 example input solution in spec/2020/03_spec.rb
-8. 
+8. Repeat steps 5 and 6
