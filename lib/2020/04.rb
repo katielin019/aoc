@@ -13,6 +13,12 @@
 REQUIRED = ["byr", "iyr", "eyr", "hgt", "hcl", "ecl", "pid"]
 PASSPORTS = INPUT.split("\n\n")
 
-def part_1(input)
-
+def part_1(input, fields)
+  valid = 0
+  input.each do |passport|
+    valid += 1 unless fields.map { |field| passport[field] }.include? nil
+  end
+  valid
 end
+
+solve!("Part 1:", part_1(PASSPORTS, REQUIRED))
