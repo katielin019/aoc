@@ -1,5 +1,11 @@
-- [] add binstub for just retrieving puzzle input
-- [] modify `bin/start` to scrape write-up page to retrieve example input and include it in generated spec file
+# p0
+
+- [ ] update script to output error message when input can't be retrieved
+
+# !p0
+
+- [ ] add binstub for just retrieving puzzle input
+- [ ] modify `bin/start` to scrape write-up page to retrieve example input and include it in generated spec file
 
 - [x] fix errors in `lib/2024/01.rb`
 - [x] reconfigure `lib/2024/02.rb`

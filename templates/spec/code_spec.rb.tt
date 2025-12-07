@@ -1,14 +1,19 @@
 require "spec_helper"
 
-RSpec.describe "Day <%= date.day %>: REPLACE_WITH_TITLE" do
+RSpec.describe "Day <%= date.day %>: <%= @title %>" do
   let(:runner) { Runner.new("<%= datepath %>") }
   let(:input) do
     <<~TXT
+    <% @sample_input %>
     TXT
   end
 
   describe "(Part 1)" do
     let(:solution) { runner.execute!(input, part: 1) }
+
+    it "does something" do
+      expect(solution).to eq(<%= @sample_answer %>)
+    end
   end
 
   describe "(Part 2)" do

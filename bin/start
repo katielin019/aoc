@@ -1,39 +1,7 @@
 #!/usr/bin/env ruby
 
+require_relative("../lib/parser")
 require "time"
-require "thor"
-require "open-uri"
-
-TIME_FORMAT = "%Y/%d".freeze
-
-class CodeGenerator < Thor::Group
-  include Thor::Actions
-
-  argument :date
-  argument :datepath
-
-  def self.source_root
-    File.expand_path("../", File.dirname(__FILE__))
-  end
-
-  def generate!
-    create_file("input/#{datepath}.txt", force: true) { get_input(date) }
-    create_file("lib/#{datepath}.rb", skip: true)
-    template("templates/spec/code_spec.rb.tt", "spec/#{datepath}_spec.rb", skip: true)
-  end
-
-  private
-
-  def get_input(date)
-    URI.open("https://adventofcode.com/#{date.year}/day/#{date.day}/input", headers).read
-  rescue OpenURI::HTTPError, Errno::ENOENT
-    "Uh oh. Looks like something went wrong :("
-  end
-
-  def headers
-    @headers ||= {"Cookie" => ENV.fetch("COOKIE") { File.read(".session/cookie") }}
-  end
-end
 
 date = ARGV[0] ? Time.strptime(ARGV[0], TIME_FORMAT) : Time.new.localtime("-05:00")
 datepath = date.strftime(TIME_FORMAT)
