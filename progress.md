@@ -4,6 +4,11 @@
 
 <progress value="7" max="50"></progress>
 
+Completed:
+- Day 1
+- ...
+- Day 3
+
 In progress:
 - Day 4
 
@@ -11,11 +16,17 @@ In progress:
 
 <progress value="9" max="50"></progress>
 
+Completed:
+- Day 1
+- ...
+- Day 4
+
 In progress:
 - Day 5
 
 ## 2025
 
-<progress value="0" max="50"></progress>
+<progress value="1" max="50"></progress>
 
-Not yet started
+In progress:
+- Day 1
