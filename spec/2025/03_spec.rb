@@ -1,7 +1,7 @@
 require "spec_helper"
 
-RSpec.describe "Day <%= date.day %>: REPLACE WITH TITLE" do
-  let(:runner) { Runner.new("<%= datepath %>") }
+RSpec.describe "Day 3: REPLACE WITH TITLE" do
+  let(:runner) { Runner.new("2025/03") }
   let(:input) do
     <<~TXT
     TXT

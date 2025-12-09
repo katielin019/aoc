@@ -1,5 +1,4 @@
 .DS_Store
 .session
 *.code-workspace
-
-input/**/*
+input/
