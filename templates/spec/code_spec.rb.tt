@@ -1,10 +1,6 @@
 require "spec_helper"
 
-<<<<<<< HEAD
-RSpec.describe "Day <%= date.day %>: <%= @title %>" do
-=======
-RSpec.describe "Day <%= date.day %>: REPLACE WITH TITLE" do
->>>>>>> simple
+RSpec.describe "Day <%= date.day %>: REPLACE_WITH_TITLE" do
   let(:runner) { Runner.new("<%= datepath %>") }
   let(:input) do
     <<~TXT
@@ -16,15 +12,15 @@ RSpec.describe "Day <%= date.day %>: REPLACE WITH TITLE" do
     let(:solution) { runner.execute!(input, part: 1) }
 
     it "does something" do
-<<<<<<< HEAD
-      expect(solution).to eq(<%= @sample_answer %>)
-=======
-      expect(solution).to eq(REPLACE WITH ANSWER)
->>>>>>> simple
+      expect(solution).to eq(REPLACE_WITH_ANSWER)
     end
   end
 
   describe "(Part 2)" do
     let(:solution) { runner.execute!(input, part: 2) }
+
+    it "does something" do
+      expect(solution).to eq(REPLACE_WITH_ANSWER)
+    end
   end
 end
