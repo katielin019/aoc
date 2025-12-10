@@ -28,7 +28,7 @@ RSpec.describe "Day 1: Secret Entrance" do
   describe "(Part 2)" do
     let(:solution) { runner.execute!(input, part: 2) }
 
-    it "analyzes the rotations in the document" do
+    it "counts the number of times the dial points at 0" do
       expect(solution).to eq(6)
     end
   end
