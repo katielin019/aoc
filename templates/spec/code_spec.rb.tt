@@ -8,7 +8,7 @@ RSpec.describe "Day <%= date.day %>: REPLACE_WITH_TITLE" do
     TXT
   end
 
-  describe "(Part 1)" do
+  describe "PART_1" do
     let(:solution) { runner.execute!(input, part: 1) }
 
     it "does something" do
@@ -16,7 +16,7 @@ RSpec.describe "Day <%= date.day %>: REPLACE_WITH_TITLE" do
     end
   end
 
-  describe "(Part 2)" do
+  describe "PART_2" do
     let(:solution) { runner.execute!(input, part: 2) }
 
     it "does something" do

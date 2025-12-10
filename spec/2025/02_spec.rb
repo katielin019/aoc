@@ -14,11 +14,15 @@ RSpec.describe "Day 2: Gift Shop" do
     let(:solution) { runner.execute!(input, part: 1) }
 
     it "sums the invalid IDs" do
-      expect(solution).to eq(122)
+      expect(solution).to eq(1227775554)
     end
   end
 
   describe "(Part 2)" do
     let(:solution) { runner.execute!(input, part: 2) }
+
+    it "does something" do
+      expect(solution).to eq(REPLACE_WITH_ANSWER)
+    end
   end
 end

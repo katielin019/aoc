@@ -2,7 +2,7 @@
 
 ## p0
 
-- [ ] update script to output error message when input can't be retrieved
+- [ ] update script to output error message when input can't be retrieved (and not overwrite input file)
 
 ## !p0
 
