@@ -26,11 +26,6 @@ def part_2(input)
       password += distance / LENGTH
       distance = distance - (distance / LENGTH) * LENGTH
     end
-    # # delta = (LENGTH - direction * dial) % LENGTH
-    # delta = direction == 1 ? LENGTH - dial : dial
-    # if dial == 0 and direction == -1
-    #   delta = 100
-    # end
     if dial == 0
       delta = 100
       password += 1
@@ -46,10 +41,3 @@ def part_2(input)
 end
 
 solve!("Part 2:", part_2(ROTATIONS))
-
-# def rotate(rotation)
-#   spins = rotation % LENGTH
-#   distance = rotation - spins
-#   # "R205"
-#   # print dial final position, number of times it passes 0
-# end
