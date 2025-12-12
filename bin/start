@@ -18,6 +18,7 @@ class CodeGenerator < Thor::Group
 
   def generate!
     create_file("input/#{datepath}.txt", force: true) { get_input(date) }
+    # create_file("lib/#{datepath}.rb", skip: true)
     template("templates/lib/code.rb.tt", "lib/#{datepath}.rb", skip: true)
     template("templates/spec/code_spec.rb.tt", "spec/#{datepath}_spec.rb", skip: true)
   end
