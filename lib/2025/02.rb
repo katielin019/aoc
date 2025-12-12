@@ -1,6 +1,6 @@
 RANGE_MATCHER = /(?<start>\d+)-(?<end>\d+)/
 RANGES = INPUT.split(",").map do |range|
-  range.match(RANGE_MATCHER).captures.map { |x| x.to_i }
+  range.match(RANGE_MATCHER).captures.map(&:to_i)
 end
 
 # [[11, 22], ... [2121212118, 2121212124]]
