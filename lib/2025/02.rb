@@ -50,12 +50,12 @@ def first_half(id)
   s[0...half].to_i
 end
 
-# Returns the second half of the id unless the id has an odd number of digits.
+# Returns the second half of the id with the assumption that it has an even number of digits.
+# (See #first_half(id))
 # @param id [Integer]
 # @return [Integer, nil]
 def second_half(id)
   s = id.to_s
-  return nil if s.length.odd?
   half = s.length / 2
   s[half..-1].to_i
 end
@@ -64,9 +64,9 @@ end
 # @param id [Integer] the provided id
 # @return [Boolean]
 def invalid?(id)
-  first, second = first_half(id), second_half(id)
-  return nil if first.nil? or second.nil?
-  return first == second
+  first = first_half(id)
+  return nil if first.nil?
+  return first == second_half(id)
 end
 
 # Determines the next invalid id.
