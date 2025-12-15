@@ -9,17 +9,21 @@ def part_1(input)
 
 end
 
-def find_subset_range(range)
+def find_invalid(range)
   a, b = range
   if a.length.odd?
-    # find next suitable value where length is even AND value is less than b
-    # else, return -1
+    a = next_invalid_id(a)
   end
+  # lower_bound = a[0..a.length/2].to_i
 end
 
-def find_invalid(range)
-  # a, b = range
-
+# Determines the next invalid id given a valid id with odd length
+#
+# @param [String, #read] number
+# @return [int] the invalid id
+def next_invalid_id(number)
+  sequence = 10 ** ((number.length + 1) / 2 - 1)
+  sequence.to_s * 2
 end
 
 solve!("Part 1:", part_1(RANGES))
