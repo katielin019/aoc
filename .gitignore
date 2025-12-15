@@ -1,4 +1,6 @@
 .DS_Store
 .session
+.yardoc/
 *.code-workspace
 input/
+doc/
