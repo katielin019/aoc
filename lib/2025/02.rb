@@ -1,27 +1,25 @@
 RANGE_MATCHER = /(?<start>\d+)-(?<end>\d+)/
 RANGES = INPUT.split(",").map do |range|
-  range.match(RANGE_MATCHER).captures.map(&:to_i)
+  range.match(RANGE_MATCHER).captures
 end
 
 # [[11, 22], ... [2121212118, 2121212124]]
 
 def part_1(input)
-  invalid = []
-  input.each do |range|
-    a, b = range
-    unless length(a) % 2 == 1 and length(a) == length(b)
 
-    end
+end
+
+def find_subset_range(range)
+  a, b = range
+  if a.length.odd?
+    # find next suitable value where length is even AND value is less than b
+    # else, return -1
   end
 end
 
-def length(number)
-  count = 1
-  while number >= 10
-    number /= 10
-    count += 1
-  end
-  count
+def find_invalid(range)
+  # a, b = range
+
 end
 
 solve!("Part 1:", part_1(RANGES))
