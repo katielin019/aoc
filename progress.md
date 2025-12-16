@@ -26,7 +26,7 @@ In progress:
 
 ## 2025
 
-<progress value="2" max="50"></progress>
+<progress value="3" max="50"></progress>
 
 Completed:
 - Day 1

@@ -16,9 +16,9 @@ end
 def part_1(input)
   total = 0
   input.each do |range|
-    puts range
+    # puts range
     ids = find_invalid_ids(range.map(&:to_i))
-    puts ids.length
+    # puts ids.length
     total += ids.reduce(:+) || 0
   end
   total
@@ -73,32 +73,18 @@ end
 # @param id [Integer]
 # @return [Integer] the next invalid id
 def next_invalid_id(id)
-  s = id.to_s
-  if s.length.odd?
+  if id.to_s.length.odd?
     id = round_up(id)
   end
 
   first, second = first_half(id), second_half(id)
 
-  if invalid?(id)
+  if invalid?(id) or first < second
     half = first + 1
     return (half.to_s * 2).to_i
   else
-    if first < second
-      half = first + 1
-      return (half.to_s * 2).to_i
-    end
+    return (first.to_s * 2).to_i
   end
-  # # half = repeated_half(id) ||
-  # # s = id.to_s
-  # # half =
-  # #   if invalid?(id)
-  # #     s[0...s.length/2].to_i
-  # #   else
-  # #     10 ** ((s.length - 1) / 2)
-  # #   end
-  # # x = half + 1
-  # # return (x.to_s * 2).to_i
 end
 
 # Finds the next number containing an even number of digits.
@@ -106,11 +92,12 @@ end
 # @return [Integer] a rounded up value
 def round_up(id)
   s = id.to_s
-  10 ** s.to_length
+  10 ** s.length.to_i
 end
 
 # def part_2(input)
 # end
 
-solve!("Part 1:", part_1(RANGES[0..5]))
+# solve!("Part 1:", part_1(RANGES[0..5]))
+solve!("Part 1:", part_1(RANGES))
 # solve!("Part 2:", part_2(RANGES))

@@ -18,11 +18,11 @@ RSpec.describe "Day 2: Gift Shop" do
     end
   end
 
-  describe "(Part 2)" do
-    let(:solution) { runner.execute!(input, part: 2) }
+  # describe "(Part 2)" do
+  #   let(:solution) { runner.execute!(input, part: 2) }
 
-    it "does something" do
-      expect(solution).to eq(REPLACE_WITH_ANSWER)
-    end
-  end
+  #   it "does something" do
+  #     expect(solution).to eq(REPLACE_WITH_ANSWER)
+  #   end
+  # end
 end
