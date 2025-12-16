@@ -14,16 +14,16 @@ RSpec.describe "Day 3: Lobby" do
   describe "(Part 1)" do
     let(:solution) { runner.execute!(input, part: 1) }
 
-    it "does something" do
+    it "sums the max joltage from each power bank" do
       expect(solution).to eq(357)
     end
   end
 
-  describe "(Part 2)" do
-    let(:solution) { runner.execute!(input, part: 2) }
+  # describe "(Part 2)" do
+  #   let(:solution) { runner.execute!(input, part: 2) }
 
-    it "does something" do
-      expect(solution).to eq(REPLACE_WITH_ANSWER)
-    end
-  end
+  #   it "does something" do
+  #     expect(solution).to eq(REPLACE_WITH_ANSWER)
+  #   end
+  # end
 end

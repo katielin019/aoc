@@ -76,7 +76,6 @@ def next_invalid_id(id)
   if id.to_s.length.odd?
     id = round_up(id)
   end
-
   first, second = first_half(id), second_half(id)
 
   if invalid?(id) or first < second
@@ -95,9 +94,18 @@ def round_up(id)
   10 ** s.length.to_i
 end
 
-# def part_2(input)
-# end
+# Sums the invalid ids for all ranges in the puzzle input.
+# @param input {RANGES}
+def part_2(input)
+  # repeated sequence of digits at least twice (odd/even rule no longer applies in the same way)
+  # for sequences of even length, their resultant id also must be even (e.g. "10" -> "101010")
+  # so basically if there's more than one unique digit contained in the string, then it must be of even length
+  #
+  # maybe do slice and check??
+end
 
-# solve!("Part 1:", part_1(RANGES[0..5]))
 solve!("Part 1:", part_1(RANGES))
 # solve!("Part 2:", part_2(RANGES))
+
+# 824824824
+# 446
