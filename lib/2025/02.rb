@@ -50,39 +50,63 @@ def first_half(id)
   s[0...half].to_i
 end
 
-# Returns the second half of the id with the assumption that it has an even number of digits.
-# (See #first_half(id))
+# Returns the second half of the id unless the id has an odd number of digits.
 # @param id [Integer]
 # @return [Integer, nil]
 def second_half(id)
   s = id.to_s
+  return nil if s.length.odd?
   half = s.length / 2
   s[half..-1].to_i
 end
 
-# Checks if an id is invalid
+# Checks if an id is invalid.
 # @param id [Integer] the provided id
 # @return [Boolean]
 def invalid?(id)
   first = first_half(id)
-  return nil if first.nil?
-  return first == second_half(id)
+  return false if first.nil?
+  first == second_half(id)
 end
 
 # Determines the next invalid id.
-# @param number [Integer]
+# @param id [Integer]
 # @return [Integer] the next invalid id
 def next_invalid_id(id)
-  # half = repeated_half(id) ||
-  # s = id.to_s
-  # half =
-  #   if invalid?(id)
-  #     s[0...s.length/2].to_i
-  #   else
-  #     10 ** ((s.length - 1) / 2)
-  #   end
-  # x = half + 1
-  # return (x.to_s * 2).to_i
+  s = id.to_s
+  if s.length.odd?
+    id = round_up(id)
+  end
+
+  first, second = first_half(id), second_half(id)
+
+  if invalid?(id)
+    half = first + 1
+    return (half.to_s * 2).to_i
+  else
+    if first < second
+      half = first + 1
+      return (half.to_s * 2).to_i
+    end
+  end
+  # # half = repeated_half(id) ||
+  # # s = id.to_s
+  # # half =
+  # #   if invalid?(id)
+  # #     s[0...s.length/2].to_i
+  # #   else
+  # #     10 ** ((s.length - 1) / 2)
+  # #   end
+  # # x = half + 1
+  # # return (x.to_s * 2).to_i
+end
+
+# Finds the next number containing an even number of digits.
+# @param id [Integer] an id with an odd length
+# @return [Integer] a rounded up value
+def round_up(id)
+  s = id.to_s
+  10 ** s.to_length
 end
 
 # def part_2(input)
