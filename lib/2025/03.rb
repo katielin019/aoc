@@ -1,27 +1,26 @@
-LINES = INPUT.split("\n")
+BANKS = INPUT.split("\n")
 
 def part_1(input)
   # transform string of numbers to an array of numbers
-
-  # # find the largest value in bank[0...-1]
-  first = batteries.reduce do |memo, battery|
-    battery > memo ? battery : memo
+  input.reduce do |total, bank|
+    bank.chars.map(&:to_i)
   end
-  # find the first index of battery value and then search the remaining list for the next highest value
-  first_idx = batteries.index(first)
-  remaining = batteries[first_idx + 1..-1]
-  # find the largest value from bank[index + 1..-1]
-  second = remaining.reduce do |memo, battery|
-    battery > memo ? battery : memo
-  end
-  second_idx = remaining.index(second) + first_idx + 1
+  # call largest_joltage
+  # sum total output joltage
 end
 
 def largest_joltage(bank)
-  first = bank.reduce do |memo, battery|
+  first = max(bank[0...-1])
+  partition = bank.index(first) + 1
+  remaining = bank[partition..-1]
+  second = max(remaining)
+  first * 10 + second
+end
+
+def max(batteries)
+  batteries.reduce do |memo, battery|
     battery > memo ? battery : memo
   end
-
 end
 
 solve!("Part 1:", part_1(LINES))
