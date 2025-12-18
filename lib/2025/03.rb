@@ -1,8 +1,7 @@
 BANKS = INPUT.split("\n")
 
 def part_1(input)
-  # banks = input.map { |line| line.chars.map(&:to_i) }
-  # banks = input.map(&:to_i).digits.reverse
+  banks = input.map { |line| line.chars.map(&:to_i) }
   banks.reduce(0) do |total, bank|
     total + largest_joltage(bank)
   end
@@ -23,7 +22,7 @@ end
 
 solve!("Part 1:", part_1(BANKS))
 
-def part_2(input)
-end
+# def part_2(input)
+# end
 
-solve!("Part 2:", part_2(BANKS))
+# solve!("Part 2:", part_2(BANKS))
