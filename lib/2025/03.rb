@@ -7,13 +7,6 @@ def part_1(input)
   end
 end
 
-# def largest_joltage(bank)
-#   first = joltage_helper(bank[0...-1])
-#   partition = bank.index(first) + 1
-#   second = joltage_helper(bank[partition..-1])
-#   first * 10 + second
-# end
-
 def largest_joltage(bank, count)
   result, partition = 0, 0
   while count > 0
@@ -40,7 +33,5 @@ def part_2(input)
     total + largest_joltage(bank, 12)
   end
 end
-
-puts part_2(input).class
 
 solve!("Part 2:", part_2(BANKS))
