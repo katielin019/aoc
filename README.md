@@ -11,5 +11,5 @@ As of December 2024, all of my solutions are written in Ruby. I previously made 
 ```
 2020: 7/50*
 2024: 9/50*
-2025: 5/50*
+2025: 5/24*
 ```
